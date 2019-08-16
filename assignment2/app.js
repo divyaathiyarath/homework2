@@ -103,7 +103,7 @@ books=[
 
 
 app.get('/',(req,res)=>{
-    res.send("Welcome");
+    res.render('index.ejs');
 });
 app.get('/index',(req,res)=>{
     res.render('index.ejs');
