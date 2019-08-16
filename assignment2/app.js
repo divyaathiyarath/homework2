@@ -112,6 +112,6 @@ app.get('/viewbooks',(req,res)=>{
     res.render('viewbooks.ejs',books);
 });
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log("Server is running");
 });
