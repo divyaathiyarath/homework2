@@ -1,5 +1,7 @@
 const Express=require('express');
 var app=new Express();
+app.set('view engine','ejs');
+app.use(Express.static(__dirname+"/public"));
 books=[
     {
         'title':'Turning points',
@@ -98,6 +100,7 @@ books=[
         price:225,
         Description:"Novel"
     }];
+
 
 app.get('/',(req,res)=>{
     res.send("Welcome");
