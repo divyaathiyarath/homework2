@@ -19,6 +19,9 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/viewbooks">View books</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/viewall">View all</a>
+                  </li>
                   
                 </ul>
               
@@ -27,47 +30,47 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-6" style="margin-top: 50px">
                            <!-- <div class="border" style="margin-top: 50px;"> -->
-                           <form action="" style="border: 1px solid powderblue;padding: 30px">
+                           <form action="/read" method="POST" style="border: 1px solid powderblue;padding: 30px">
                                <div class="form-group row">
                                <label for="title" class="col-sm-2 col-form-label">Title</label>
                                <div class="col-sm-10">
-                               <input type="text" class="form-cotrol">
+                               <input type="text" class="form-cotrol" name="title">
                                </div>
                               </div>
                               <div class="form-group row">
                                     <label for="author" class="col-sm-2 col-form-label">Author</label>
                                     <div class="col-sm-10">
-                                    <input type="text" class="form-cotrol">
+                                    <input type="text" class="form-cotrol" name="author">
                                     </div>
                                    </div>
                                    <div class="form-group row">
                                         <label for="publisher" class="col-sm-2 col-form-label">Publisher</label>
                                         <div class="col-sm-10">
-                                        <input type="text" class="form-cotrol">
+                                        <input type="text" class="form-cotrol" name="publisher">
                                         </div>
                                        </div>
                                        <div class="form-group row">
                                             <label for="dop" class="col-sm-2 col-form-label">Date of publication</label>
                                             <div class="col-sm-10">
-                                            <input type="date" name="dop" id="dop" class="form-control">
+                                            <input type="date" id="dop" class="form-control" name="date_of_publication">
                                             </div>
                                         </div> 
                                         <div class="form-group row">
                                                 <label for="dname" class="col-sm-2 col-form-label">Distributor name</label>
                                                 <div class="col-sm-10">
-                                                <input type="text" class="form-cotrol">
+                                                <input type="text" class="form-cotrol" name="distributor">
                                                 </div>
                                                </div>
                                         <div class="form-group row">
                                             <label for="price" class="col-sm-2 col-form-label">Price</label>
                                             <div class="col-sm-10">
-                                             <input type="text">
+                                             <input type="text" name="price">
                                             </div>
                                         </div>
                               <div class="form-group row">
                                <label for="description" class="col-sm-2 col-form-label">Description</label>
                                <div class="col-sm-10">
-                               <textarea name="description" id="" cols="30" rows="5" class="form-control"></textarea>
+                               <textarea name="description" id="" cols="30" rows="5" class="form-control" name="textarea"></textarea>
                               </div>
                               </div>
                               
@@ -76,7 +79,7 @@
                               <div class="form-group row">
                                 <div class="col-sm-5"></div> 
                                   <div class="col-sm-7">   
-                                  <button class="btn btn-success">Submit</button>
+                                  <button type="submit" class="btn btn-success">Submit</button>
                                   </div>
                               </div>
                            </form>

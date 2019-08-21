@@ -1,7 +1,22 @@
 const Express=require('express');
 var app=new Express();
+var request=require('request');
+var bodyparser=require('body-parser');
+var mongoose=require('mongoose');
 app.set('view engine','ejs');
 app.use(Express.static(__dirname+"/public"));
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:true}));
+mongoose.connect("mongodb+srv://mongodb:mongodb@mycluster-rfooj.mongodb.net/test?retryWrites=true&w=majority");
+var LibraryModel=mongoose.model("library",{
+    title:String,
+    author:String,
+    publisher:String,
+    date_of_publication:String,
+    distributor:String,
+    price:String,
+    description:String
+});
 books=[
     {
         'title':'Turning points',
@@ -111,6 +126,54 @@ app.get('/index',(req,res)=>{
 app.get('/viewbooks',(req,res)=>{
     res.render('viewbooks.ejs',books);
 });
+app.post('/read',(req,res)=>
+{
+    var lib=new LibraryModel(req.body);
+    var result=lib.save((error)=>
+{
+    if(error)
+    {
+        throw error;
+    }
+    else{
+        console.log("User created");
+    }
+});
+res.send(result);
+});
+
+app.get('/getdataApi/:bname',(req,res)=>
+{
+    var name=req.params.bname;
+    var result=LibraryModel.find({title:name},(error,data)=>
+{
+    if(error)
+    {
+        throw error;
+    }
+    else{
+        res.send(data);
+    }
+});
+});
+const dataApi="http://localhost:3000/getdataApi";
+app.get('/viewall',(req,res)=>
+{
+    request(dataApi,(error,response,body)=>
+{
+    if(error)
+    {
+        throw error;
+    }
+    else{
+    var result=JSON.parse(body);
+    res.render('viewall',{result}); 
+    }
+
+})
+
+})
+
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log("Server is running");

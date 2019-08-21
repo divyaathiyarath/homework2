@@ -16,26 +16,26 @@
                     <a class="nav-link" href="/index">Add books</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="/viewbooks">View books</a>
+                    <a class="nav-link" href="/viewbooks">View books</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/viewall">View all</a>
+                    <a class="nav-link active" href="/viewall">View all</a>
                   </li>
                 </ul>
               
               </nav>
             <div class="container"></div>
                       <div class="card-columns p-5">                                         
-                        <% for(var i=0;i<books.length;i++){ %>
+                        <% for(var i=0;i<result.length;i++){ %>
                             <div class="card"> 
                             <div class="card-body">
-                       <div class="form-group row">Title:<p class="card-text"><%= books[i].title %></p></div>
-                       <div class="form-group row">  Author:<p class="card-text"><%= books[i].author %></p></div>
-                        <div class="form-group row">  Publisher:<p class="card-text"><%= books[i].publisher %></p></div>
-                            <div class="form-group row">  Publication:<p class="card-text"><%= books[i].date_of_publication %></p></div>
-                                <div class="form-group row"> Distributor:<p class="card-text"><%= books[i].distributor %></p></div>
-                                    <div class="form-group row"> Price:<p class="card-text"><%= books[i].price %></p></div>
-                                        <div class="form-group row"> Description:<p class="card-text"><%= books[i].description %></p></div>
+                       <div class="form-group row">Title:<p class="card-text"><%= result[i].title %></p></div>
+                       <div class="form-group row">  Author:<p class="card-text"><%= result[i].author %></p></div>
+                        <div class="form-group row">  Publisher:<p class="card-text"><%= result[i].publisher %></p></div>
+                            <div class="form-group row">  Publication:<p class="card-text"><%= result[i].date_of_publication %></p></div>
+                                <div class="form-group row"> Distributor:<p class="card-text"><%= result[i].distributor %></p></div>
+                                    <div class="form-group row"> Price:<p class="card-text"><%= result[i].price %></p></div>
+                                        <div class="form-group row"> Description:<p class="card-text"><%= result[i].description %></p></div>
                             </div>
                         </div>
                        <% } %>
